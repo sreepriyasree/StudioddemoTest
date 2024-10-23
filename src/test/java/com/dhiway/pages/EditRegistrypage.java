@@ -1,0 +1,43 @@
+package com.dhiway.pages;
+
+import java.time.Duration;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+public class EditRegistrypage {
+    WebDriver driver;
+    WebDriverWait wait;
+public EditRegistrypage(WebDriver driver){
+    this.driver = driver;
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(30));  // Define WebDriverWait here
+        PageFactory.initElements(driver, this);  // Initialize page elements
+}
+@FindBy(xpath ="//input[@id='searchSpace-id']")
+WebElement Searchbox;
+@FindBy(css="body > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(6) > div:nth-child(1) > div:nth-child(6) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > button:nth-child(1) > div:nth-child(1)")
+WebElement threedot;
+@FindBy(css = "body > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(6) > div:nth-child(1) > div:nth-child(6) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > button:nth-child(1) > ul:nth-child(2) > li:nth-child(2)")
+WebElement EditRegistrybtn;
+@FindBy(xpath = "//input[@id='space-name-input-id']")
+WebElement Spacenametextbox;
+
+public void searchBox(){
+    Searchbox.sendKeys("Testspacename3");
+    Searchbox.click();
+}
+public void EditRegistry() throws InterruptedException{
+    threedot.click();
+    Thread.sleep(20000);
+    EditRegistrybtn.click();
+    Thread.sleep(20000);
+    Spacenametextbox.sendKeys("edited");
+    Thread.sleep(20000);
+    WebElement UpdateRegistrybtn = driver.findElement(By.xpath("//button[text()='Update Registry']"));
+    UpdateRegistrybtn.click();
+}
+}
