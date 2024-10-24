@@ -1,6 +1,13 @@
 package com.dhiway.TestCases;
 
-import org.apache.xmlbeans.impl.xb.xsdschema.ListDocument.List;
+import java.io.IOException;
+import java.time.Duration;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -11,10 +18,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import com.dhiway.Utilities.ExcelUtils;
-import com.dhiway.Utilities.ReadConfig;
-import com.dhiway.Utilities.Screenshot;
-import com.dhiway.pages.LoginPage;
 import com.dhiway.Utilities.DateTimeUtil;
 import com.dhiway.Utilities.ExcelUtils;
 import com.dhiway.Utilities.ReadConfig;
@@ -22,10 +25,11 @@ import com.dhiway.Utilities.Screenshot;
 import com.dhiway.pages.LoginPage;
 
 public class BulkDownload extends BaseClass {
+
     @Test
-    public void BulkDownloadCredentials () throws IOException, InterruptedException {
-         String testcasename = "BulkDownload";
-        
+    public void BulkDownloadCredentials() throws InterruptedException, IOException {
+        String testcasename = "Bulkdownload";
+
         // Ensure the driver is initialized
         PageFactory.initElements(driver, this);
 
@@ -37,47 +41,48 @@ public class BulkDownload extends BaseClass {
         ExcelUtils TestData = new ExcelUtils(testcasename);
         Map<String, String> firstRowData = TestData.getTestData();
 
-        // Check if "email" is in the first row and get corresponding data
+        // Log in with email from Excel
         if (firstRowData.containsKey("email")) {
             String email = firstRowData.get("email");
             Lp.enterUsername(email);
         }
 
-        Thread.sleep(1000);
-        String datetimetoday = new SimpleDateFormat("ddMMyyyy_HHmmss").format(new java.util.Date());
-        Screenshot.saveScreenshot(((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE),
-                "Screenshots/" + testcasename + " " + datetimetoday + "/login.jpg");
-        Lp.submitButton();
-        Thread.sleep(2000);
-        Screenshot.saveScreenshot(((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE),
-                "Screenshots/" + testcasename + " " + datetimetoday + "/verify.jpg");
-
-        // WebDriver wait for the element to be visible
+        // Wait for the login button, submit, and capture screenshot
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(60));
+        Lp.submitButton();
+        String timestamp = DateTimeFormatter.ofPattern("ddMMyyyy_HHmmss").format(LocalDateTime.now());
+        Screenshot.saveScreenshot(((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE),
+                "Screenshots/" + testcasename + "_" + timestamp + "/login.jpg");
+
+        // Wait for the dashboard to load
         WebElement createspace = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("create-space")));
         Screenshot.saveScreenshot(((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE),
-                "Screenshots/" + testcasename + " " + datetimetoday + "/Dashboard.jpg");
+                "Screenshots/" + testcasename + "_" + timestamp + "/Dashboard.jpg");
 
+        // Test result log
         ExcelUtils Testcases = new ExcelUtils("Testcases");
+
+        // Select space if available
         if (createspace != null) {
-            // Selecting the space
             if (firstRowData.containsKey("spacename")) {
-                String Spacename = firstRowData.get("spacename");
-                WebElement selectspace = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//h6[text()='" + Spacename + "']")));
+                String spacename = firstRowData.get("spacename");
+                WebElement selectspace = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//h6[text()='" + spacename + "']")));
                 selectspace.click();
             }
-            Thread.sleep(10000);
 
-            // Wait for the dropdown element to be visible and clickable
+            // Wait for and interact with the dropdown and Bulk Download elements
             WebElement Dropdownelement = wait.until(ExpectedConditions.elementToBeClickable(By.id("optionsDropDown")));
-            Dropdownelement.click();  // Click the dropdown to expand it
-            WebElement BulkDownloadele = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#bulkdown")));
+            Dropdownelement.click(); // Expand dropdown
 
-            WebElement pdfeElement= wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#pdf")));
-            Thread.sleep(1000);
-                 Screenshot.saveScreenshot(((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE),
-                    "Screenshots/" + testcasename + " " + datetimetoday + "/Bulkpdfdownload.jpg");
-                    // Verify URL after operation
+            WebElement BulkDownloadele = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//li[@id='bulkdown']")));
+            BulkDownloadele.click();
+            WebElement pdfElement = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//li[@id='pdf']")));
+            pdfElement.click();
+            Thread.sleep(20000); // Ensure stability
+            Screenshot.saveScreenshot(((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE),
+                    "Screenshots/" + testcasename + "_" + timestamp + "/Bulkpdfdownload.jpg");
+
+            // Validate the URL after the operation
             String expectedUrlStart = config.getProperty("StudioBaseUrl") + "admin/dashboard/records-list/";
             if (driver.getCurrentUrl().startsWith(expectedUrlStart)) {
                 List<String> data = Arrays.asList(DateTimeUtil.getCurrentDateTime(), "Passed");
@@ -88,12 +93,10 @@ public class BulkDownload extends BaseClass {
                 Testcases.writeDataToSheet("Testcases", testcasename, data);
                 Assert.assertTrue(false);
             }
-       
 
-        TestData.close();
-        Testcases.close();
+            // Close resources
+            TestData.close();
+            Testcases.close();
+        }
     }
 }
-    }
-    
-
