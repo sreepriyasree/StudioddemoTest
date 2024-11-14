@@ -51,10 +51,14 @@ public class CreateSpace extends BaseClass{
         Screenshot.saveScreenshot(((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE),
                 "Screenshots/" + testcasename + " " + datetimetoday + "/login.jpg");
         Lp.submitButton();
+        
         Thread.sleep(2000);
-        Screenshot.saveScreenshot(((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE),
-                "Screenshots/" + testcasename + " " + datetimetoday + "/verify.jpg");
-
+        Lp.enterotp();
+        Thread.sleep(2000);
+WebElement Loginbtn = driver.findElement(By.id("login-btn-id"));
+Loginbtn.click();
+Thread.sleep(20000);
+      
         // webdriver wait given for wait till the elemt is visible
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(60000));
         WebElement createspace = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("create-space")));
@@ -79,7 +83,7 @@ public class CreateSpace extends BaseClass{
                 //  Thread.sleep(8000);
                   WebElement searchbox = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//img[@class='ml-auto cursor-pointer']")));
                     searchbox.click(); // Ensure the click happens if necessary
-//searchbox.clear(); // Clear any pre-existing text (if needed)
+
     
                   //WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
                   WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.id("template-search-in32")));

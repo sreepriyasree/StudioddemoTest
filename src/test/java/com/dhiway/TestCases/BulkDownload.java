@@ -50,6 +50,12 @@ public class BulkDownload extends BaseClass {
         // Wait for the login button, submit, and capture screenshot
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(60));
         Lp.submitButton();
+        Thread.sleep(2000);
+        Lp.enterotp();
+        Thread.sleep(2000);
+WebElement Loginbtn = driver.findElement(By.id("login-btn-id"));
+Loginbtn.click();
+Thread.sleep(20000);
         String timestamp = DateTimeFormatter.ofPattern("ddMMyyyy_HHmmss").format(LocalDateTime.now());
         Screenshot.saveScreenshot(((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE),
                 "Screenshots/" + testcasename + "_" + timestamp + "/login.jpg");

@@ -53,6 +53,11 @@ public class IssueAll extends BaseClass {
                 "Screenshots/" + testcasename + " " + datetimetoday + "/login.jpg");
         Lp.submitButton();
         Thread.sleep(2000);
+        Lp.enterotp();
+        Thread.sleep(2000);
+WebElement Loginbtn = driver.findElement(By.id("login-btn-id"));
+Loginbtn.click();
+Thread.sleep(20000);
         Screenshot.saveScreenshot(((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE),
                 "Screenshots/" + testcasename + " " + datetimetoday + "/verify.jpg");
 

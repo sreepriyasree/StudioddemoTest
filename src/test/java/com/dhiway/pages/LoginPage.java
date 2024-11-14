@@ -18,14 +18,19 @@ public class LoginPage {
 
     @FindBy(id = "login-btn-id")
     WebElement SignInBtn;
+    @FindBy(xpath = "//*[@id=\"otpcode\"]/div[1]/input")
+    WebElement Otp;
 
     @FindBy(id = "create-account-btn-id")  
     WebElement registerButton;
 
     public void enterUsername(String uname) {
         usernameBox.sendKeys(uname);
+      
     }
-
+public void enterotp(){
+    Otp.sendKeys("913345");
+}
     public void registerButton() {
         registerButton.click();
     }
@@ -37,4 +42,5 @@ public class LoginPage {
     public WebDriver getDriver() {
         return driver;
     }
+   
 }

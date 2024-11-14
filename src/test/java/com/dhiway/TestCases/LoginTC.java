@@ -24,6 +24,7 @@ import com.dhiway.Utilities.Screenshot;
 import com.dhiway.pages.LoginPage;
 
 public class LoginTC extends BaseClass {
+
     @Test
     public void LoginToWebsite() throws InterruptedException, IOException {
         String testcasename = "LoginTC";
@@ -41,19 +42,29 @@ public class LoginTC extends BaseClass {
         if (firstRowData.containsKey("email")) {
             String email = firstRowData.get("email");
             Lp.enterUsername(email);
+            Thread.sleep(2000);
+            // enterotp(password);
+           
         }
-
+        
         Thread.sleep(1000);
         String datetimetoday = new SimpleDateFormat("ddMMyyyy_HHmmss").format(new Date());
         Screenshot.saveScreenshot(((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE),
                 "Screenshots/" + testcasename + " " + datetimetoday + "/login.jpg");
+
         Lp.submitButton();
+
         Thread.sleep(2000);
+        Lp.enterotp();
+        Thread.sleep(2000);
+WebElement Loginbtn = driver.findElement(By.id("login-btn-id"));
+Loginbtn.click();
+Thread.sleep(20000);
         Screenshot.saveScreenshot(((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE),
                 "Screenshots/" + testcasename + " " + datetimetoday + "/verify.jpg");
 
         // webdriver wait given for wait till the elemt is visible
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(60000));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(6000));
         WebElement createspace = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("create-space")));
         Screenshot.saveScreenshot(((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE),
                 "Screenshots/" + testcasename + " " + datetimetoday + "/Dashboard.jpg");

@@ -46,9 +46,14 @@ public class RevokeTC extends BaseClass {
                 "Screenshots/" + testcasename + " " + datetimetoday + "/login.jpg");
 
         Lp.submitButton();
+        Thread.sleep(2000);
+        Lp.enterotp();
+        Thread.sleep(2000);
+WebElement Loginbtn = driver.findElement(By.id("login-btn-id"));
+Loginbtn.click();
 
         // Wait for the dashboard to load
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(60));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
         WebElement createspace = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("create-space")));
 
         Screenshot.saveScreenshot(((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE),

@@ -45,6 +45,11 @@ public class EditRegistryTC extends BaseClass {
         "Screenshots/" + testcasename + " " + datetimetoday + "/login.jpg");
 
         Lp.submitButton();
+        Thread.sleep(2000);
+        Lp.enterotp();
+        Thread.sleep(2000);
+WebElement Loginbtn = driver.findElement(By.id("login-btn-id"));
+Loginbtn.click();
 
         // Wait for the dashboard to load
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(60));

@@ -48,6 +48,12 @@ public class CreateSpacewithCertificateSelection extends BaseClass {
         
         Lp.submitButton();
         Thread.sleep(2000);
+        Lp.enterotp();
+        Thread.sleep(2000);
+WebElement Loginbtn = driver.findElement(By.id("login-btn-id"));
+Loginbtn.click();
+
+        Thread.sleep(2000);
         // Screenshot after login
         String datetimetoday = new SimpleDateFormat("ddMMyyyy_HHmmss").format(new java.util.Date());
         Screenshot.saveScreenshot(((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE),
