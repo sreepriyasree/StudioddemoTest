@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="4" passed="4" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2024-11-26T22:18:30 IST" name="MySuite" finished-at="2024-11-26T22:23:10 IST" duration-ms="280012">
+    <groups>
+    </groups>
+    <test started-at="2024-11-26T22:18:30 IST" name="MyTests" finished-at="2024-11-26T22:23:10 IST" duration-ms="280012">
+      <class name="com.dhiway.TestCases.LoginTC">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.dhiway.TestCases.LoginTC@2473d930]" started-at="2024-11-26T22:18:30 IST" name="setUp" finished-at="2024-11-26T22:18:34 IST" duration-ms="3466" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="LogintoWebsite()[pri:0, instance:com.dhiway.TestCases.LoginTC@2473d930]" started-at="2024-11-26T22:18:34 IST" name="LogintoWebsite" finished-at="2024-11-26T22:19:04 IST" duration-ms="29938" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- LogintoWebsite -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.dhiway.TestCases.LoginTC@2473d930]" started-at="2024-11-26T22:19:04 IST" name="tearDown" finished-at="2024-11-26T22:19:04 IST" duration-ms="671" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.dhiway.TestCases.LoginTC -->
+      <class name="com.dhiway.TestCases.Bulkupload">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.dhiway.TestCases.Bulkupload@1725dc0f]" started-at="2024-11-26T22:21:10 IST" name="setUp" finished-at="2024-11-26T22:21:13 IST" duration-ms="2349" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="BulkRecordinSpace()[pri:0, instance:com.dhiway.TestCases.Bulkupload@1725dc0f]" started-at="2024-11-26T22:21:13 IST" name="BulkRecordinSpace" finished-at="2024-11-26T22:23:10 IST" duration-ms="117045" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- BulkRecordinSpace -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.dhiway.TestCases.Bulkupload@1725dc0f]" started-at="2024-11-26T22:23:10 IST" name="tearDown" finished-at="2024-11-26T22:23:10 IST" duration-ms="624" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.dhiway.TestCases.Bulkupload -->
+      <class name="com.dhiway.TestCases.CreateRecord">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.dhiway.TestCases.CreateRecord@31368b99]" started-at="2024-11-26T22:20:06 IST" name="setUp" finished-at="2024-11-26T22:20:08 IST" duration-ms="2356" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="CreateRecordinSpace()[pri:0, instance:com.dhiway.TestCases.CreateRecord@31368b99]" started-at="2024-11-26T22:20:08 IST" name="CreateRecordinSpace" finished-at="2024-11-26T22:21:10 IST" duration-ms="61744" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- CreateRecordinSpace -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.dhiway.TestCases.CreateRecord@31368b99]" started-at="2024-11-26T22:21:10 IST" name="tearDown" finished-at="2024-11-26T22:21:10 IST" duration-ms="621" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.dhiway.TestCases.CreateRecord -->
+      <class name="com.dhiway.TestCases.CreateSpace">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.dhiway.TestCases.CreateSpace@50b472aa]" started-at="2024-11-26T22:19:04 IST" name="setUp" finished-at="2024-11-26T22:19:07 IST" duration-ms="2387" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="Spacecreation()[pri:0, instance:com.dhiway.TestCases.CreateSpace@50b472aa]" started-at="2024-11-26T22:19:07 IST" name="Spacecreation" finished-at="2024-11-26T22:20:05 IST" duration-ms="58164" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Spacecreation -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.dhiway.TestCases.CreateSpace@50b472aa]" started-at="2024-11-26T22:20:05 IST" name="tearDown" finished-at="2024-11-26T22:20:06 IST" duration-ms="624" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.dhiway.TestCases.CreateSpace -->
+    </test> <!-- MyTests -->
+  </suite> <!-- MySuite -->
+</testng-results>

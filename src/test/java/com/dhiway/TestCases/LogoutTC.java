@@ -1,5 +1,9 @@
 package com.dhiway.TestCases;
 
+import org.testng.annotations.Test;
+import org.testng.AssertJUnit;
+import org.testng.annotations.Test;
+import org.testng.AssertJUnit;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
@@ -82,12 +86,12 @@ Loginbtn.click();
                     if (driver.getCurrentUrl().startsWith(result)) {
                         List<String> data = Arrays.asList(DateTimeUtil.getCurrentDateTime(), "Passed");
                         Testcases.writeDataToSheet("Testcases", "LogoutTC", data);
-                        Assert.assertTrue(true);
+                        AssertJUnit.assertTrue(true);
                     } else {
                         List<String> data = Arrays.asList(DateTimeUtil.getCurrentDateTime(), "Error",
                                 "TestCaseFailed");
                         Testcases.writeDataToSheet("Testcases", "LogoutTC", data);
-                        Assert.assertTrue(false);
+                        AssertJUnit.assertTrue(false);
                     }
                 
         

@@ -1,5 +1,9 @@
 package com.dhiway.TestCases;
 
+import org.testng.annotations.Test;
+import org.testng.AssertJUnit;
+import org.testng.annotations.Test;
+import org.testng.AssertJUnit;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
@@ -135,13 +139,13 @@ Thread.sleep(20000);
                      List<String> data = Arrays.asList(DateTimeUtil.getCurrentDateTime().toString(), "Passed");
                 Testcases.writeDataToSheet("Testcases", testcasename, data);
 
-                Assert.assertTrue(true);
+                AssertJUnit.assertTrue(true);
                 }
                 else{
                     List<String> data = Arrays.asList(DateTimeUtil.getCurrentDateTime().toString(), "failed");
                 Testcases.writeDataToSheet("Testcases", testcasename, data);
 
-                Assert.assertTrue(false);  
+                AssertJUnit.assertTrue(false);  
                 }
             }
 

@@ -1,5 +1,9 @@
 package com.dhiway.TestCases;
 
+
+
+import org.testng.annotations.Test;
+import org.testng.AssertJUnit;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
@@ -11,12 +15,10 @@ import java.util.Map;
 import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
-import org.testng.annotations.Test;
-
 import com.dhiway.Utilities.DateTimeUtil;
 import com.dhiway.Utilities.ExcelUtils;
 import com.dhiway.Utilities.ReadConfig;
@@ -25,8 +27,15 @@ import com.dhiway.pages.LoginPage;
 
 public class LoginTC extends BaseClass {
 
+    @SuppressWarnings("unused")
+    private static final WebDriver WebDriver = null;
+
+    /**
+     * @throws InterruptedException
+     * @throws IOException
+     */
     @Test
-    public void LoginToWebsite() throws InterruptedException, IOException {
+    public void LogintoWebsite() throws InterruptedException, IOException {
         String testcasename = "LoginTC";
         LoginPage Lp = new LoginPage(driver);
         ReadConfig config = new ReadConfig();
@@ -76,17 +85,17 @@ Thread.sleep(20000);
             if (driver.getCurrentUrl().startsWith(result)) {
                 List<String> data = Arrays.asList(DateTimeUtil.getCurrentDateTime(), "Passed");
                 Testcases.writeDataToSheet("Testcases", "LoginTC", data);
-                Assert.assertTrue(true);
+                AssertJUnit.assertTrue(true);
             } else {
                 List<String> data = Arrays.asList(DateTimeUtil.getCurrentDateTime(), "Error",
                         "TestCaseFailed");
                 Testcases.writeDataToSheet("Testcases", "LoginTC", data);
-                Assert.assertTrue(false);
+                AssertJUnit.assertTrue(false);
             }
         } else {
             List<String> data = Arrays.asList(DateTimeUtil.getCurrentDateTime(), "Error", "TestCaseFailed");
             Testcases.writeDataToSheet("Testcases", "LoginTC", data);
-            Assert.assertTrue(false);
+            AssertJUnit.assertTrue(false);
         }
 
         TestData.close();

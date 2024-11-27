@@ -1,5 +1,7 @@
 package com.dhiway.TestCases;
 
+import org.testng.annotations.Test;
+import org.testng.AssertJUnit;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
@@ -15,9 +17,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
-import org.testng.annotations.Test;
-
 import com.dhiway.Utilities.DateTimeUtil;
 import com.dhiway.Utilities.ExcelUtils;
 import com.dhiway.Utilities.ReadConfig;
@@ -97,10 +96,10 @@ Thread.sleep(20000);
             WebElement Textarea = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='email-textarea-holder']//textarea")));  // Or the correct tag inside the div
             Textarea.sendKeys("Mail check text area");
             
-            Thread.sleep(20000);
+            Thread.sleep(6000);
             WebElement Adminccselect = driver.findElement(By.xpath("//label[@class='h6 font-regular text-label d-flex flex-row mb-0']"));
             Adminccselect.click();
-            Thread.sleep(20000);
+            Thread.sleep(10000);
             WebElement CustomCCselect = driver.findElement(By.xpath("//label[@class='h6 font-regular text-label d-flex flex-row']"));
             CustomCCselect.click();
             WebElement Customemail = driver.findElement(By.xpath("//input[@id='email']"));
@@ -109,7 +108,7 @@ Thread.sleep(20000);
             WebElement Issuenowbtn = driver.findElement(By.xpath("//button[text()='Issue Now']"));
             Issuenowbtn.click();
     
-            Thread.sleep(20000);
+            Thread.sleep(10000);
 
             Screenshot.saveScreenshot(((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE),
                     "Screenshots/" + testcasename + " " + datetimetoday + "/ALLRecordsIssued.jpg");
@@ -121,23 +120,23 @@ Thread.sleep(20000);
                 // Log test result as "Passed"
                 java.util.List<String> data = Arrays.asList(DateTimeUtil.getCurrentDateTime(), "Passed");
                 Testcases.writeDataToSheet("Testcases", testcasename, data);
-                Assert.assertTrue(true);
+                AssertJUnit.assertTrue(true);
             } else {
                 // Log test result as "Failed"
                 java.util.List<String> data = Arrays.asList(DateTimeUtil.getCurrentDateTime(), "Failed");
                 Testcases.writeDataToSheet("Testcases", testcasename, data);
-                Assert.assertTrue(false);
+                AssertJUnit.assertTrue(false);
             }
             // Verify URL after operation
             String expectedUrlStart = config.getProperty("StudioBaseUrl") + "admin/dashboard/records-list/";
             if (driver.getCurrentUrl().startsWith(expectedUrlStart)) {
                 List<String> data = Arrays.asList(DateTimeUtil.getCurrentDateTime(), "Passed");
                 Testcases.writeDataToSheet("Testcases", testcasename, data);
-                Assert.assertTrue(true);
+                AssertJUnit.assertTrue(true);
             } else {
                 List<String> data = Arrays.asList(DateTimeUtil.getCurrentDateTime(), "Error", "TestCaseFailed");
                 Testcases.writeDataToSheet("Testcases", testcasename, data);
-                Assert.assertTrue(false);
+                AssertJUnit.assertTrue(false);
             }
        
 
