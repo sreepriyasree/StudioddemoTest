@@ -15,7 +15,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.AssertJUnit;
+import org.testng.Assert;
+import org.testng.annotations.Test;
 
 import com.dhiway.Utilities.DateTimeUtil;
 import com.dhiway.Utilities.ExcelUtils;
@@ -23,11 +24,12 @@ import com.dhiway.Utilities.ReadConfig;
 import com.dhiway.Utilities.Screenshot;
 import com.dhiway.pages.LoginPage;
 
-public class NewDownloadbtn extends BaseClass
-{
-    public void downloadButtonoption() throws InterruptedException, IOException{
-         String testcasename =  "NewDownloadpdfwithbkgndIssued";
-              // Ensure the driver is initialized
+public class NewDownloadbtn extends BaseClass {
+ @Test
+    public void downloadButtonOption() throws InterruptedException, IOException {
+        String testcasename = "NewDownloadpdfwithbkgndIssued";
+
+        // Initialize driver and page objects
         PageFactory.initElements(driver, this);
 
         LoginPage Lp = new LoginPage(driver);
@@ -49,60 +51,70 @@ public class NewDownloadbtn extends BaseClass
         Lp.submitButton();
         Thread.sleep(2000);
         Lp.enterotp();
-        Thread.sleep(2000);
-WebElement Loginbtn = driver.findElement(By.id("login-btn-id"));
-Loginbtn.click();
-Thread.sleep(20000);
-        String timestamp = DateTimeFormatter.ofPattern("ddMMyyyy_HHmmss").format(LocalDateTime.now());
-        Screenshot.saveScreenshot(((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE),
-                "Screenshots/" + testcasename + "_" + timestamp + "/login.jpg");
+            Thread.sleep(2000);
 
-        // Wait for the dashboard to load
-        WebElement createspace = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("create-space")));
-        Screenshot.saveScreenshot(((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE),
-                "Screenshots/" + testcasename + "_" + timestamp + "/Dashboard.jpg");
+            // Click Login button
+            WebElement loginBtn = wait.until(ExpectedConditions.elementToBeClickable(By.id("login-btn-id")));
+            loginBtn.click();
+            Thread.sleep(20000);
 
-        // Test result log
-        ExcelUtils Testcases = new ExcelUtils("Testcases");
+            // Capture login screenshot
+            String timestamp = DateTimeFormatter.ofPattern("ddMMyyyy_HHmmss").format(LocalDateTime.now());
+            Screenshot.saveScreenshot(((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE),
+                    "Screenshots/" + testcasename + "_" + timestamp + "/login.jpg");
 
-        // Select space if available
-        if (createspace != null) {
+            // Wait for the dashboard to load and capture screenshot
+          //  WebElement createspace = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("create-space")));
+            Screenshot.saveScreenshot(((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE),
+                    "Screenshots/" + testcasename + "_" + timestamp + "/Dashboard.jpg");
+
+            // Select space if specified in test data
             if (firstRowData.containsKey("spacename")) {
-                String spacename = firstRowData.get("spacename");
-                WebElement selectspace = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//h6[text()='" + spacename + "']")));
-                selectspace.click();
+                String spaceName = firstRowData.get("spacename");
+                WebElement selectSpace = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//h6[text()='" + spaceName + "']")));
+                selectSpace.click();
                 Thread.sleep(2000);
             }
-            WebElement Issuedtab = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div[1]/div/div/div[4]/div/div[14]/div/div[1]/div[1]/p[1]"))));
 
-            if(Issuedtab !=null){
-                WebElement Actions = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(".mb-4 > th:nth-child(1) > label:nth-child(2)")));
-                Actions.click();
-            }
-WebElement newDownloadbtn = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".tn-sm")));
-newDownloadbtn.click();
-WebElement pdfwithbkd = driver.findElement(By.cssSelector("ul.d-flex:nth-child(11) > li:nth-child(1) > img:nth-child(1)"));
-pdfwithbkd.click();
-WebElement FinalDownloadbtn = wait.until(ExpectedConditions.visibilityOfElementLocated(By.linkText("Download")));
-FinalDownloadbtn.click();
-Thread.sleep(10000);
-Screenshot.saveScreenshot(((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE),
-                    "Screenshots/" + testcasename + " " + datetimetoday + "/Downloadnew.jpg");
+            // Perform actions on Issued tab
+            WebElement issuedTab = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("p.cursor-pointer:nth-child(1)")));
+            issuedTab.click();
 
+            WebElement actions = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(".mb-4 > th:nth-child(1) > label:nth-child(2)")));
+            actions.click();
 
-    }
-    String expectedUrlStart = config.getProperty("StudioBaseUrl") + "admin/dashboard/records-list/";
+            // Click the download button and select PDF with background
+            WebElement newDownloadBtn = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(".tn-sm")));
+            newDownloadBtn.click();
+
+            WebElement pdfWithBackground = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("ul.d-flex:nth-child(11) > li:nth-child(1) > img:nth-child(1)")));
+            pdfWithBackground.click();
+
+            WebElement finalDownloadBtn = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(".btn-dwnld")));
+            finalDownloadBtn.click();
+            Thread.sleep(10000);
+
+            // Save screenshot after download
+            String dateTimeToday = DateTimeFormatter.ofPattern("ddMMyyyy_HHmmss").format(LocalDateTime.now());
+            Screenshot.saveScreenshot(((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE),
+                    "Screenshots/" + testcasename + "_" + dateTimeToday + "/DownloadNew.jpg");
+
+            // Verify the final URL and log the test result
+            String expectedUrlStart = config.getProperty("StudioBaseUrl") + "admin/dashboard/records-list/";
+            ExcelUtils testCases = new ExcelUtils("Testcases");
             if (driver.getCurrentUrl().startsWith(expectedUrlStart)) {
                 List<String> data = Arrays.asList(DateTimeUtil.getCurrentDateTime(), "Passed");
-                Testcases.writeDataToSheet("Testcases", testcasename, data);
-                AssertJUnit.assertTrue(true);
+                testCases.writeDataToSheet("Testcases", testcasename, data);
+                Assert.assertTrue(true);
             } else {
                 List<String> data = Arrays.asList(DateTimeUtil.getCurrentDateTime(), "Error", "TestCaseFailed");
-                Testcases.writeDataToSheet("Testcases", testcasename, data);
-                AssertJUnit.assertTrue(false);
+                testCases.writeDataToSheet("Testcases", testcasename, data);
+                Assert.fail("Test case failed");
             }
+            testCases.close();
+       
+            // Close resources
+            TestData.close();
+        }
+    }
 
-    TestData.close();
-    Testcases.close();
-}
-}

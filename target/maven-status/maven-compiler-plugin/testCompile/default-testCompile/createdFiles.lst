@@ -1,4 +1,5 @@
 com/dhiway/Utilities/Issuerecord.class
+com/.DS_Store
 com/dhiway/TestCases/CreateSpacewithCertificateSelection.class
 com/dhiway/TestCases/CreateRecord.class
 com/dhiway/pages/Revokepage.class
@@ -8,6 +9,7 @@ com/dhiway/TestCases/CreateSpace.class
 com/dhiway/pages/EditRegistrypage.class
 com/dhiway/TestCases/BaseClass.class
 com/dhiway/pages/Archivepage.class
+.DS_Store
 com/dhiway/TestCases/BulkDownloadpdfwithoutbg.class
 com/dhiway/pages/IssueRecordpage.class
 com/dhiway/pages/RecordsPage.class
@@ -15,9 +17,11 @@ com/dhiway/TestCases/ArchiveRegistryTC.class
 com/dhiway/TestCases/NewDownloadbtn.class
 com/dhiway/pages/Issuerecord.class
 com/dhiway/Utilities/ExcelUtils.class
+com/dhiway/.DS_Store
 com/dhiway/pages/Dashboard.class
 com/dhiway/pages/CreateAccount.class
 com/dhiway/Utilities/IssueAll.class
+com/dhiway/TestCases/Activitylog.class
 com/dhiway/Utilities/ReadConfig.class
 com/dhiway/TestCases/RevokeTC.class
 com/dhiway/TestCases/IssueAll.class
