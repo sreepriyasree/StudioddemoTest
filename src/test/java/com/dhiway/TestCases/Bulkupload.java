@@ -85,7 +85,6 @@ Thread.sleep(20000);
             WebElement Addrecord = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[@id='add-record']"))); 
             Addrecord.click();
             WebElement BulkRecord = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[@id=\"bulk-record-id\"]")));
-           
             
             if ( BulkRecord != null) {
                 BulkRecord.click();

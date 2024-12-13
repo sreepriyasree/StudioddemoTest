@@ -109,9 +109,7 @@ Thread.sleep(20000);
             // Taking a screenshot after adding Record
             Screenshot.saveScreenshot(((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE),
                 "Screenshots/" + testcasename + " " + datetimetoday + "/Recordcreated.jpg");
-
             Thread.sleep(5000);
-
             String result = config.getProperty("StudioBaseUrl") + "admin/dashboard";
             if (driver.getCurrentUrl().startsWith(result)) {
                 List<String> data = Arrays.asList(DateTimeUtil.getCurrentDateTime().toString(), "Passed");
