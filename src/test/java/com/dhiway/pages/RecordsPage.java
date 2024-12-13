@@ -32,10 +32,10 @@ WebElement BulkAddRecordsBtn;
         SubmitAddRecord.click();
     }
     //Bulk upload
-    public void clickherelink(){
+    public void clickherelink() throws InterruptedException{
+        clicklink.click();
        
-       
-        clicklink.click();  //xpath -> //u[text()='Click Here']
+          //xpath -> //u[text()='Click Here']
     }
     public void PreviewRecord(){
         previewrecordbtn.click();  // xpath -> //button[text()='Preview Records']

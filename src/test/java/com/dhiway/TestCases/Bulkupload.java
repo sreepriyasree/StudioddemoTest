@@ -2,8 +2,6 @@ package com.dhiway.TestCases;
 
 import org.testng.annotations.Test;
 import org.testng.AssertJUnit;
-import org.testng.annotations.Test;
-import org.testng.AssertJUnit;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
@@ -18,9 +16,6 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
-import org.testng.annotations.Test;
-
 import com.dhiway.Utilities.DateTimeUtil;
 import com.dhiway.Utilities.ExcelUtils;
 import com.dhiway.Utilities.ReadConfig;
@@ -98,6 +93,8 @@ Thread.sleep(20000);
            // WebElement BulkUpload = driver.findElement(By.xpath("//u[text()='Click Here']"));
             RP.clickherelink();
             Thread.sleep(20000);
+           
+
            //WebElement Bulkadd = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[text()='Preview Records']")));
             RP.PreviewRecord();
             Thread.sleep(20000);
