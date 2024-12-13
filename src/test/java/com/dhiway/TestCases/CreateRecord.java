@@ -25,8 +25,6 @@ import com.dhiway.pages.RecordsPage;
 
 public class CreateRecord extends BaseClass {
 
-    private static final WebElement SubmitAddRecord = null;
-
     @Test
     public void CreateRecordinSpace() throws InterruptedException, IOException {
         String testcasename = "CreateRecord";
