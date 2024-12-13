@@ -82,10 +82,12 @@ Thread.sleep(20000);
            // RP.addRecordbtn();
             
             // Find the element for Bulk record and check if it's not null
-            WebElement Addrecord = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[text()='Bulk Record']"))); 
+             WebElement Addrecord = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[@id='add-record']"))); 
+            Addrecord.click();
+            WebElement BulkRecord = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[@id=\"bulk-record-id\"]")));
             
-            if (Addrecord != null) {
-                Addrecord.click();
+            if ( BulkRecord != null) {
+                BulkRecord.click();
             } else {
                 System.out.println("Bulk Record button element is not found!");
             }
