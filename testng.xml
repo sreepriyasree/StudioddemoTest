@@ -5,11 +5,7 @@
         <classes>
             <class name="com.dhiway.TestCases.LoginTC"/>
              <class name="com.dhiway.TestCases.CreateSpace"/>
-<<<<<<< HEAD
               <class name="com.dhiway.TestCases.EditRegistryTC"/>
-=======
-             <class name="com.dhiway.TestCases.EditRegistryTC"/>
->>>>>>> bcac51c0d4f68655cc5688550acd727261b09374
               <class name="com.dhiway.TestCases.CreateRecord"/>
               <class name="com.dhiway.TestCases.Bulkupload"/>
               
