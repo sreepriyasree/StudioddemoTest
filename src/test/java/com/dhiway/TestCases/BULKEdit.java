@@ -97,7 +97,7 @@ Thread.sleep(10000);
  Screenshot.saveScreenshot(((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE),
                 "Screenshots/" + testcasename + " " + datetimetoday + "/BulkEditdown.jpg");
 
-            Thread.sleep(5000);
+            Thread.sleep(6000);
 
             String result = config.getProperty("StudioBaseUrl") + "admin/dashboard/records-list/";
             if (driver.getCurrentUrl().startsWith(result)) {

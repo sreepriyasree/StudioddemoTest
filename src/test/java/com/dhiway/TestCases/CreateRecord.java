@@ -77,7 +77,7 @@ Thread.sleep(20000);
 
             RecordsPage RP = new RecordsPage(driver);
             RP.addRecordbtn();
-            Thread.sleep(10000);
+            Thread.sleep(5000);
             
             // Find the element for Addrecord and check if it's not null
             WebElement Addrecord = driver.findElement(By.id("single-record-id")); 
