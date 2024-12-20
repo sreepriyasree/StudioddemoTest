@@ -60,7 +60,7 @@ Loginbtn.click();
         if (createspace != null) {
             EditRegistrypage ER = new EditRegistrypage(driver);
             ER.searchBox();
-            Thread.sleep(20000);
+            Thread.sleep(2000);
             ER.EditRegistry();
             Thread.sleep(2000);
             // Take a screenshot after issuing the record

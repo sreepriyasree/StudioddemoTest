@@ -26,6 +26,7 @@ WebElement BulkAddRecordsBtn;
 
     public void addRecordbtn() {
         addRecord.click();
+        
     }
 
     public void SubmitAddRecord() {
