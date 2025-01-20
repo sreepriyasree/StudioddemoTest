@@ -14,6 +14,7 @@ public class ExcelUtils {
 
     private Workbook workbook;
     private Sheet sheet;
+    public Object writeDataTo;
 
     public ExcelUtils(String sheetName) throws IOException {
         FileInputStream fis = new FileInputStream("TestData/Testexcel.xlsx");
