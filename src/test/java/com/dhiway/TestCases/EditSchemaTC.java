@@ -50,10 +50,11 @@ public class EditSchemaTC extends BaseClass {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(60));
 
         // Wait for OTP input and submit
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("otp-input")));
-        loginPage.enterotp();
-        WebElement loginBtn = driver.findElement(By.id("login-btn-id"));
-        loginBtn.click();
+      loginPage.enterotp();
+        Thread.sleep(2000);
+WebElement Loginbtn = driver.findElement(By.id("login-btn-id"));
+Loginbtn.click();
+Thread.sleep(20000);
 
         // Wait for the dashboard to load
         WebElement createSpaceBtn = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("create-space")));
@@ -97,10 +98,10 @@ public class EditSchemaTC extends BaseClass {
             "#root > div > div > div.mt-2 > div > div.col-md-5.col-lg-5.schema-cards-container.overflow-webkit-none.px-0.mt-60 > div > div > div.tab-content > div.tab-pane.fade-ui.active > div > div > div.position-next > button")));
         nextBtn.click();
 
-        WebElement saveSchemaBtn = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(
-            "#scroll-bottom > div.position-next-save > button")));
-        saveSchemaBtn.click();
-
+        WebElement SaveSchemaBtn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[text()='SAVE SCHEMA']")));
+            SaveSchemaBtn.click();
+            Thread.sleep(20000);
+    
         // Take screenshot after editing the schema
         Screenshot.saveScreenshot(((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE),
             "Screenshots/" + testcasename + " " + datetimetoday + "/EditSchema.jpg");

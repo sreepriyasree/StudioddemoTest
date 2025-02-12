@@ -4,10 +4,31 @@
     <test name="MyTests">
         <classes>
             <class name="com.dhiway.TestCases.LoginTC"/>
+             <class name="com.dhiway.TestCases.LogoutTC"/>
+              <class name="com.dhiway.TestCases.CreateSchemaTC"/>
+               <class name="com.dhiway.TestCases.EditSchemaTC"/>
+                <class name="com.dhiway.TestCases.CreateDesignTC"/>
+                 <class name="com.dhiway.TestCases.Editdesign"/>
              <class name="com.dhiway.TestCases.CreateSpace"/>
               <class name="com.dhiway.TestCases.EditRegistryTC"/>
               <class name="com.dhiway.TestCases.CreateRecord"/>
               <class name="com.dhiway.TestCases.Bulkupload"/>
+              <class name="com.dhiway.TestCases.Issuerecord"/>
+              <class name="com.dhiway.TestCases.BulkEdit"/>
+              <class name="com.dhiway.TestCases.RevokeTC"/>
+              <class name="com.dhiway.TestCases.IssueAll"/>
+              <class name="com.dhiway.TestCases.ReshareRecord"/>
+              <class name="com.dhiway.TestCases.SummaryDownload"/>
+               <class name="com.dhiway.TestCases.Activitylog"/>
+              <class name="com.dhiway.TestCases.SettingsTC"/>
+               <class name="com.dhiway.TestCases.ArchiveRegistryTC"/>
+                <class name="com.dhiway.TestCases.BulkDownload"/>
+                 <class name="com.dhiway.TestCases.BulkhashMARKpngTC"/>
+                  <class name="com.dhiway.TestCases.CreateSpacewithCertificateSelection"/>
+
+
+              
+
               
             <!-- Add more classes as needed -->
         </classes>
