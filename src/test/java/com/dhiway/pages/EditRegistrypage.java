@@ -29,7 +29,7 @@ WebElement EditRegistrybtn;
 WebElement Spacenametextbox;
 
 public void searchBox(){
-    Searchbox.sendKeys("Testspacename3");
+    Searchbox.sendKeys("Test Space Creation");
     Searchbox.click();
 }
 public void EditRegistry() throws InterruptedException{

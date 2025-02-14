@@ -101,7 +101,7 @@ Loginbtn.click();
             Thread.sleep(8000);
         // Click on the certificate named "Check -june20"
         WebElement selectedCert = wait.until(ExpectedConditions.elementToBeClickable(
-    By.xpath("//*[@id=\"june-13th8\"]")));
+    By.cssSelector("div[id=' Copy of Certificate Issuance0'] img[alt='Preview Template']")));
         Thread.sleep(8000);
         selectedCert.click();
 

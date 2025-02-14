@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebElement;
@@ -68,7 +69,7 @@ public class CreateDesignTC extends BaseClass {
         Designerbtn.click();
         Thread.sleep(5000);
         WebElement Searchfield = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='user-name-modal']")));
-        Searchfield.sendKeys("test");
+        Searchfield.sendKeys("Test Schema Creation 20");
         Thread.sleep(6000);
         WebElement Selectschema= wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(" #root > div > div:nth-child(2) > div > div > div:nth-child(3) > div:nth-child(2)")));
         Selectschema.click();
@@ -91,8 +92,14 @@ Namefield.click();
 Thread.sleep(6000);
 
 Addfieldbtn.click();
+
+
 WebElement Backgndbtn = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("#dropdown-variables > li:nth-child(5)")));
+// Scroll the element into view
+((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", Backgndbtn);
+Thread.sleep(500); // Allow smooth scrolling
 Backgndbtn.click();
+
 Thread.sleep(10000);
 WebElement Recentbkgnd = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("body > div:nth-child(2) > div:nth-child(2) > div:nth-child(4) > div:nth-child(1) > ul:nth-child(1) > li:nth-child(1)")));
 Recentbkgnd.click();

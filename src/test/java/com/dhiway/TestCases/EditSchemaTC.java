@@ -79,7 +79,7 @@ Thread.sleep(20000);
         designerBtn.click();
 
         WebElement searchTab = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='user-name-modal']")));
-        searchTab.sendKeys("dd");
+        searchTab.sendKeys("Test");
         
         WebElement schemaSelected = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(
             "#root > div > div:nth-child(2) > div > div > div:nth-child(3) > div:nth-child(2) > div:nth-child(1) > section > p:nth-child(2)")));

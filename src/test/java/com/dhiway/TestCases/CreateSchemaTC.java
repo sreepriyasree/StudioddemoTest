@@ -82,10 +82,14 @@ public class CreateSchemaTC extends BaseClass {
             WebElement Createschematempbtn = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#root > div > div:nth-child(2) > div > div > div:nth-child(2) > div > p")));
             Createschematempbtn.click();
             Thread.sleep(10000);
-    
-            WebElement SchemaTitle = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='title-schema']")));
-            SchemaTitle.click();
-            SchemaTitle.sendKeys("Test Schema Creation 12");
+           
+
+            String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+String schemaTitleText = "Test Schema Creation " + timestamp;
+
+WebElement SchemaTitle = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='title-schema']")));
+SchemaTitle.click();
+SchemaTitle.sendKeys(schemaTitleText);
     
             WebElement SchemaDesc = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//textarea[@id='schema-desc-id']")));
             SchemaDesc.click();
@@ -94,7 +98,7 @@ public class CreateSchemaTC extends BaseClass {
             WebElement SchemaVer = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='version-id']")));
             SchemaVer.sendKeys("2");
     
-            WebElement nextBtn = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("#root > div > div > div.mt-2 > div > div.col-md-5.col-lg-5.schema-cards-container.overflow-webkit-none.px-0.mt-60 > div > div > div.tab-content > div.tab-pane.fade-ui.active > div > div > div.position-next > button")));
+            WebElement nextBtn = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("button[class='m-0 mr-2 w-100 py-3 bg-dark-blue-banner text-white font-bold h5 next-btn btn btn-primary']")));
             nextBtn.click();
             Thread.sleep(2000);
     
@@ -116,7 +120,7 @@ public class CreateSchemaTC extends BaseClass {
             WebElement FieldDesc = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@placeholder='Description']")));
             FieldDesc.sendKeys("Description text name");
     
-            WebElement SaveSchemaBtn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[text()='SAVE SCHEMA']")));
+            WebElement SaveSchemaBtn = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("button[class='m-0 mr-2 w-100 py-3 bg-dark-blue-banner text-white font-bold h5 next-btn btn btn-primary disabled']")));
             SaveSchemaBtn.click();
             Thread.sleep(20000);
     

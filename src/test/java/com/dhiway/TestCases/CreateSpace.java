@@ -2,13 +2,9 @@ package com.dhiway.TestCases;
 
 import org.testng.annotations.Test;
 import org.testng.AssertJUnit;
-import org.testng.annotations.Test;
-import org.testng.AssertJUnit;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.Arrays;
-import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -18,9 +14,6 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
-import org.testng.annotations.Test;
-
 import com.dhiway.Utilities.DateTimeUtil;
 import com.dhiway.Utilities.ExcelUtils;
 import com.dhiway.Utilities.ReadConfig;
@@ -29,7 +22,7 @@ import com.dhiway.pages.CreateSpacepage;
 import com.dhiway.pages.LoginPage;
 
 public class CreateSpace extends BaseClass{
-    private static final ExcelUtils Testcases = null;
+    //private static final ExcelUtils Testcases = null;
 
     @Test
     public void Spacecreation() throws InterruptedException, IOException{
@@ -71,10 +64,12 @@ Thread.sleep(20000);
                 if (createspace != null) {
                 CreateSpacepage CS = new CreateSpacepage(driver);
                 CS.createspacebtnclick();
-                if (firstRowData.containsKey("spacename")) {
+               if (firstRowData.containsKey("spacename")) {
                   //  String spacename = firstRowData.get("spacename");
                     CS.spacenameenter(firstRowData.get("spacename"));
                 }
+             
+
                 if (firstRowData.containsKey("spacedescription")) {
                     //  String spacename = firstRowData.get("spacename");
                       CS.spacedescriptionenter(firstRowData.get("spacedescription"));

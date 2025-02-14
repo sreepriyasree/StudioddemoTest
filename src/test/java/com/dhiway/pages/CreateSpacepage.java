@@ -1,5 +1,8 @@
 package com.dhiway.pages;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -49,7 +52,9 @@ WebElement submitbtn;
         createspacebtn.click();
     }
     public void spacenameenter(String name){
-        spacename.sendKeys(name);
+           String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+                String spacetitle = "Test Space Creation " + timestamp;
+        spacename.sendKeys(spacetitle);
     }
     public void spacedescriptionenter(String name){
         spacedescription.sendKeys(name);

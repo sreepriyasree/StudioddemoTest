@@ -97,7 +97,7 @@ Thread.sleep(20000);
             Thread.sleep(20000);
            
 
-           //WebElement Bulkadd = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[text()='Preview Records']")));
+           WebElement Bulkadd = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[text()='Preview Records']")));
             RP.PreviewRecord();
             Thread.sleep(20000);
             RP.BulkaddRecord();

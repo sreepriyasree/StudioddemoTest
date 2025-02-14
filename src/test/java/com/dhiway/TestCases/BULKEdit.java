@@ -87,11 +87,11 @@ Thread.sleep(20000);
         Thread.sleep(40000);
         WebElement Uploadbtn= wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[text()='UPLOAD']")));
 Uploadbtn.click();
-Thread.sleep(10000);
-WebElement Previewrecordbtn = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("#main-container > div.pt-6-new > div > div:nth-child(4) > div > div.react-responsive-modal-container.react-responsive-modal-containerCenter > div > div > div > div > div.bg-white.p-30.pt-0.fade-ui.container > div.bg-white.mt-4.d-flex.align-items-center.justify-content-between.mb-0 > div > button")));
+Thread.sleep(6000);
+WebElement Previewrecordbtn = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[normalize-space()='Preview Records']")));
 Previewrecordbtn.click();
 Thread.sleep(2000);
-WebElement UpdateRecordsbtn = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[text()='Update Records']")));
+WebElement UpdateRecordsbtn = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"main-container\"]/div[4]/div[4]/div[3]/div/button[1]")));
 UpdateRecordsbtn.click();
 Thread.sleep(10000);
  Screenshot.saveScreenshot(((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE),
