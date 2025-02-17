@@ -64,15 +64,16 @@ Thread.sleep(20000);
         Screenshot.saveScreenshot(((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE),
                 "Screenshots/" + testcasename + " " + datetimetoday + "/Dashboard.jpg");
 
+                WebElement Searchregistry = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("#searchSpace-id")));
+                Searchregistry.sendKeys("Test Space ");
         ExcelUtils Testcases = new ExcelUtils("Testcases");
         if (createspace != null) {
 
             // Checking if the dashboard is visible or not
-            if (firstRowData.containsKey("spacename")) {
-                String Spacename = firstRowData.get("spacename");
-                WebElement selectspace = driver.findElement(By.xpath("//h6[text()='" + Spacename + "']"));
+           
+                WebElement selectspace = driver.findElement(By.cssSelector("body > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(6) > div:nth-child(1) > div:nth-child(6) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > p:nth-child(2)"));
                 selectspace.click();
-            }
+        
             Thread.sleep(2000);
 
             RecordsPage RP = new RecordsPage(driver);

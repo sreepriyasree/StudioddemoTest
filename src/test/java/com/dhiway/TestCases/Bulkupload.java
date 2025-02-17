@@ -71,12 +71,11 @@ Thread.sleep(20000);
         if (createspace != null) {
 
             // Checking if the dashboard is visible or not
-            if (firstRowData.containsKey("spacename")) {
-                String Spacename = firstRowData.get("spacename");
-                WebElement selectspace = driver.findElement(By.xpath("//h6[text()='" + Spacename + "']"));
+            WebElement selectspace = driver.findElement(By.cssSelector("body > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(6) > div:nth-child(1) > div:nth-child(6) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > p:nth-child(2)"));
                 selectspace.click();
-            }
+        
             Thread.sleep(2000);
+            
 
             RecordsPage RP = new RecordsPage(driver);
            // RP.addRecordbtn();
@@ -97,7 +96,7 @@ Thread.sleep(20000);
             Thread.sleep(20000);
            
 
-           WebElement Bulkadd = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[text()='Preview Records']")));
+           //WebElement previewRecord = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[text()='Preview Records']")));
             RP.PreviewRecord();
             Thread.sleep(20000);
             RP.BulkaddRecord();

@@ -17,8 +17,7 @@ public EditRegistrypage(WebDriver driver){
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(30));  // Define WebDriverWait here
         PageFactory.initElements(driver, this);  // Initialize page elements
 }
-@FindBy(xpath ="//input[@id='searchSpace-id']")
-WebElement Searchbox;
+
 @FindBy (css = "#scrollableDiv > div.main-container.fade-ui.mt-2 > div > div.infinite-scroll-component__outerdiv > div > div > div:nth-child(2)")
 WebElement FirstSpace;
 @FindBy(css="div.cursor-pointer:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > button:nth-child(1)")
@@ -27,7 +26,8 @@ WebElement threedot;
 WebElement EditRegistrybtn;
 @FindBy(xpath = "//input[@id='space-name-input-id']")
 WebElement Spacenametextbox;
-
+@FindBy(xpath ="//input[@id='searchSpace-id']")
+WebElement Searchbox;
 public void searchBox(){
     Searchbox.sendKeys("Test Space Creation");
     Searchbox.click();

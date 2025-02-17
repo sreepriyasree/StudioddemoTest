@@ -23,6 +23,12 @@ WebElement clicklink;
 WebElement previewrecordbtn;
 @FindBy(xpath = "//button[text()='Add Records']")
 WebElement BulkAddRecordsBtn;
+@FindBy(xpath ="//input[@id='searchSpace-id']")
+WebElement Searchbox;
+public void searchBox(){
+    Searchbox.sendKeys("Test Space Creation");
+    Searchbox.click();
+}
 
     public void addRecordbtn() {
         addRecord.click();

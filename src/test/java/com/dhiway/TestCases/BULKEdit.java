@@ -21,7 +21,9 @@ import com.dhiway.Utilities.DateTimeUtil;
 import com.dhiway.Utilities.ExcelUtils;
 import com.dhiway.Utilities.ReadConfig;
 import com.dhiway.Utilities.Screenshot;
+import com.dhiway.pages.EditRegistrypage;
 import com.dhiway.pages.LoginPage;
+import com.dhiway.pages.RecordsPage;
 
 public class BULKEdit extends BaseClass{
     @Test
@@ -67,12 +69,15 @@ Thread.sleep(20000);
 
         ExcelUtils Testcases = new ExcelUtils("Testcases");
         if (createspace != null) {
+            RecordsPage RP = new RecordsPage(driver);
+            RP.searchBox();
+
+            Thread.sleep(2000);
             // Selecting the space
-            if (firstRowData.containsKey("spacename")) {
-                String Spacename = firstRowData.get("spacename");
-                WebElement selectspace = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//h6[text()='" + Spacename + "']")));
+            
+                WebElement selectspace = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("body > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(6) > div:nth-child(1) > div:nth-child(6) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > p:nth-child(2)")));
                 selectspace.click();
-            }
+            
             Thread.sleep(10000);
 
             // Wait for the dropdown element to be visible and clickable
@@ -84,14 +89,14 @@ Thread.sleep(20000);
         Thread.sleep(2000);
         WebElement Downloadbtn = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[text()='Download']")));
         Downloadbtn.click();
-        Thread.sleep(40000);
+        Thread.sleep(10000);
         WebElement Uploadbtn= wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[text()='UPLOAD']")));
 Uploadbtn.click();
-Thread.sleep(6000);
-WebElement Previewrecordbtn = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[normalize-space()='Preview Records']")));
+Thread.sleep(2000);
+WebElement Previewrecordbtn = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("button[class='float-right medium-button mr-1 cursor-pointer font-medium btn btn-primary']")));
 Previewrecordbtn.click();
 Thread.sleep(2000);
-WebElement UpdateRecordsbtn = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"main-container\"]/div[4]/div[4]/div[3]/div/button[1]")));
+WebElement UpdateRecordsbtn = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("button[class='float-right medium-button mr-1 cursor-pointer font-medium btn btn-primary']"))); //button[class='float-right medium-button mr-1 cursor-pointer font-medium btn btn-primary']
 UpdateRecordsbtn.click();
 Thread.sleep(10000);
  Screenshot.saveScreenshot(((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE),
