@@ -21,10 +21,11 @@
               <class name="com.dhiway.TestCases.SummaryDownload"/>
                <class name="com.dhiway.TestCases.Activitylog"/>
               <class name="com.dhiway.TestCases.SettingsTC"/>
-               <class name="com.dhiway.TestCases.ArchiveRegistryTC"/>
+             
                 <class name="com.dhiway.TestCases.BulkDownload"/>
                  <class name="com.dhiway.TestCases.BulkhashMARKpngTC"/>
                   <class name="com.dhiway.TestCases.CreateSpacewithCertificateSelection"/>
+                    <class name="com.dhiway.TestCases.ArchiveRegistryTC"/>
 
 
               
