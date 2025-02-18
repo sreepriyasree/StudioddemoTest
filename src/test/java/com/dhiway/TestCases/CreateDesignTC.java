@@ -6,11 +6,7 @@ import java.time.Duration;
 import java.util.Date;
 import java.util.Map;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.AssertJUnit;
@@ -47,7 +43,7 @@ public class CreateDesignTC extends BaseClass {
     
         loginPage.enterotp();
         Thread.sleep(2000);
-        WebElement Loginbtn = driver.findElement(By.id("login-btn-id"));
+        WebElement Loginbtn = wait.until(ExpectedConditions.elementToBeClickable(By.id("login-btn-id")));
         Loginbtn.click();
         Thread.sleep(20000);
     
@@ -56,71 +52,99 @@ public class CreateDesignTC extends BaseClass {
     
         ExcelUtils Testcases = new ExcelUtils("Testcases");
         Thread.sleep(10000);
-        WebElement Designerbtn = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("#designer-id > span")));
+        
+        WebElement Designerbtn = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#designer-id > span")));
         Designerbtn.click();
         Thread.sleep(5000);
+
         WebElement Searchfield = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='user-name-modal']")));
         Searchfield.sendKeys("Test Schema Creation 20");
         Thread.sleep(6000);
-        WebElement Selectschema= wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(" #root > div > div:nth-child(2) > div > div > div:nth-child(3) > div:nth-child(2)")));
+
+        WebElement Selectschema = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#root > div > div:nth-child(2) > div > div > div:nth-child(3) > div:nth-child(2)")));
         Selectschema.click();
         Thread.sleep(6000);
+
         WebElement Addbtn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"space-template-cards\"]/div")));
         Addbtn.click();
         Thread.sleep(6000);
-        WebElement Letsstartdesignbtn= wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(".submit-design")));
+
+        WebElement Letsstartdesignbtn = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(".submit-design")));
         Letsstartdesignbtn.click();
-    
-        WebElement Addfieldbtn =wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@id='add-button']")));
+        Thread.sleep(3000);
+
+        WebElement Addfieldbtn = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#add-button")));
         Addfieldbtn.click();
         Thread.sleep(2000);
-        
-        // Wait until dropdown disappears
-        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector(".dropdown-variables-items")));
-        
-        // Scroll element into view before clicking
+
+        // **Handling Dropdown for Variable Selection**
         WebElement variables = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(".dropdown-variables-items.position-relative")));
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", variables);
         Thread.sleep(2000);
         variables.click();
-        
         Thread.sleep(2000);
-        WebElement Namefield = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("li[class='dropdown-variables-items position-relative'] li:nth-child(1) span:nth-child(1)")));
+
+        WebElement Namefield = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("li[class='dropdown-variables-items position-relative'] li:nth-child(1)")));
         ((JavascriptExecutor) driver).executeScript("arguments[0].click();", Namefield);
-        
-        Thread.sleep(6000);
+        Thread.sleep(2000);
+
         Addfieldbtn.click();
-        
+        Thread.sleep(2000);
+
+        // **Handling Background Selection**
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector(".dropdown-variables-items")));
+
         WebElement Backgndbtn = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#dropdown-variables > li:nth-child(5)")));
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", Backgndbtn);
         Thread.sleep(500);
-        Backgndbtn.click();
-        
-        Thread.sleep(6000);
-        WebElement Recentbkgnd = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("body > div:nth-child(2) > div:nth-child(2) > div:nth-child(4) > div:nth-child(1) > ul:nth-child(1) > li:nth-child(1)")));
+        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", Backgndbtn);
+
+        // Ensure dropdown is closed before interacting
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector(".dropdown-variables-items")));
+
+        // **Selecting Recent Background**
+        WebElement Recentbkgnd = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".font-size-14.border-0.light.cursor-pointer.mb-0.pb-2.nav-link")));
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", Recentbkgnd);
         Thread.sleep(500);
-        Recentbkgnd.click();
-        
-        Thread.sleep(6000);
-        WebElement defbckgnd = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[contains(@class,'d-flex flex-row flex-wrap bg-white px-3')]//img")));
-        defbckgnd.click();
+
+        // Click using JavaScript for reliability
+        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", Recentbkgnd);
+
+        // Verify selection success
+        Thread.sleep(3000);
+       
+
+        // **Selecting Default Background**
+        Thread.sleep(3000);
+        WebElement defbckgnd = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("img[src='https://markstudio-test.s3.ap-south-1.amazonaws.com/apidata/background/o30edce57-614c-4ad6-9de3-210e19eccdfe_03fcc4ff-7442-4985-b8ff-e6fb723b3e2d.webp']")));
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", defbckgnd);
+        Thread.sleep(500);
+        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", defbckgnd);
+
+      
+      
+
+        // **Saving the Design**
         Thread.sleep(6000);
         WebElement Exitdesignerbtn = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(".back-button-header")));
         Exitdesignerbtn.click();
         Thread.sleep(6000);
+
         String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
-WebElement Savenametext = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("input[placeholder='Name this design']")));
-Savenametext.sendKeys("Testdesignname_" + timestamp);
+        WebElement Savenametext = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("input[placeholder='Name this design']")));
+        Savenametext.sendKeys("Testdesignname_" + timestamp);
         Thread.sleep(6000);
-        WebElement Savebtn =wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//p[@class='save']")));
+
+        WebElement Savebtn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//p[@class='save']")));
         Savebtn.click();
         Thread.sleep(6000);
+
         Screenshot.saveScreenshot(((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE),
-        "Screenshots/" + testcasename + " " + datetimetoday + "/Designsaved.jpg");
-        
+            "Screenshots/" + testcasename + " " + datetimetoday + "/Designsaved.jpg");
+
         boolean isUrlCorrect = wait.until(ExpectedConditions.urlContains("/space/editor"));
         AssertJUnit.assertTrue(isUrlCorrect);
+
         testData.close();
         Testcases.close();
     }

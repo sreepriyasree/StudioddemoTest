@@ -2,8 +2,6 @@ package com.dhiway.TestCases;
 
 import org.testng.annotations.Test;
 import org.testng.AssertJUnit;
-import org.testng.annotations.Test;
-import org.testng.AssertJUnit;
 import java.io.IOException;
 import java.time.Duration;
 import java.util.Arrays;
@@ -15,7 +13,6 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
 import com.dhiway.Utilities.DateTimeUtil;
 import com.dhiway.Utilities.ExcelUtils;
 import com.dhiway.Utilities.ReadConfig;
@@ -62,11 +59,11 @@ Loginbtn.click();
                 "Screenshots/" + testcasename + " " + datetimetoday + "/Dashboard.jpg");
 
         if (createspace != null) {
-            if (firstRowData.containsKey("spacename")) {
-                String Spacename = firstRowData.get("spacename");
-                WebElement selectspace = driver.findElement(By.xpath("//h6[text()='" + Spacename + "']"));
-                selectspace.click();
-            }
+            WebElement Searchspace= wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("#searchSpace-id")));
+            Searchspace.sendKeys("Test Space Creation");
+            WebElement Selectspace= wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div:nth-child(1) div:nth-child(2) div:nth-child(1) div:nth-child(1) div:nth-child(2) div:nth-child(1) div:nth-child(1) div:nth-child(1) div:nth-child(1) div:nth-child(2) h6:nth-child(1)")));
+            Selectspace.click();
+
 
             // Initialize IssueRecordpage
             Revokepage RP = new Revokepage(driver);

@@ -83,24 +83,23 @@ Thread.sleep(20000);
             // Find the element for Bulk record and check if it's not null
             WebElement Addrecord = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[@id='add-record']"))); 
             Addrecord.click();
-            WebElement BulkRecord = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[@id=\"bulk-record-id\"]")));
+            WebElement BulkRecord = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("#bulk-record-id")));
             
-            if ( BulkRecord != null) {
+            
                 BulkRecord.click();
-            } else {
-                System.out.println("Bulk Record button element is not found!");
-            }
+            Thread.sleep(2000);
 
            // WebElement BulkUpload = driver.findElement(By.xpath("//u[text()='Click Here']"));
             RP.clickherelink();
             Thread.sleep(20000);
            
-
+            WebElement Previewrecordbtn = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("button[class='float-right medium-button mr-1 cursor-pointer font-medium btn btn-primary']")));
+            Previewrecordbtn.click();
            //WebElement previewRecord = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[text()='Preview Records']")));
-            RP.PreviewRecord();
-            Thread.sleep(20000);
+            //RP.PreviewRecord();
+            Thread.sleep(6000);
             RP.BulkaddRecord();
-            Thread.sleep(20000);
+            Thread.sleep(4000);
             // Taking a screenshot after adding Record
             Screenshot.saveScreenshot(((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE),
                 "Screenshots/" + testcasename + " " + datetimetoday + "/BulkRecordcreated.jpg");

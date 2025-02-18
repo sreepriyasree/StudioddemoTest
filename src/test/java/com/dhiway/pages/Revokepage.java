@@ -21,7 +21,7 @@ public class Revokepage {
         PageFactory.initElements(driver, this);  // Initialize page elements
     }
 
-    @FindBy(xpath =" //span[text()='Revoke']")
+    @FindBy(css="img[alt='Revoke']")
     WebElement Revokebtn;
     @FindBy(css="#table-container > table > tbody > tr.active-row > td:nth-child(1) > span > button:nth-child(2) > img")
     WebElement Revokebtnimage;

@@ -65,23 +65,22 @@ Loginbtn.click();
                 "Screenshots/" + testcasename + " " + datetimetoday + "/Dashboard.jpg");
 
         if (createspace != null) {
-            if (firstRowData.containsKey("spacename")) {
-                String Spacename = firstRowData.get("spacename");
-                WebElement selectspace = driver.findElement(By.xpath("//h6[text()='" + Spacename + "']"));
-                selectspace.click();
-            }
+            WebElement Searchspace= wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("#searchSpace-id")));
+            Searchspace.sendKeys("Test Space Creation");
+            WebElement Selectspace= wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div:nth-child(1) div:nth-child(2) div:nth-child(1) div:nth-child(1) div:nth-child(2) div:nth-child(1) div:nth-child(1) div:nth-child(1) div:nth-child(1) div:nth-child(2) h6:nth-child(1)")));
+            Selectspace.click();
 
             // Initialize IssueRecordpage
             IssueRecordpage IR = new IssueRecordpage(driver);
 
             // Handle the Issued or Drafts case
             WebElement issuedElement = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(
-                    "#main-container > div.pt-6-new > div > div.main-container > div > div.d-flex.flex-row.justify-content-between > div.d-flex.flex-row > p.mb-0.cursor-pointer.h6.font-regular.width-tab.h6.text-muted.box-shadow-none")));
+                    "div[class='d-flex flex-row'] p:nth-child(1)")));
             if (issuedElement.isDisplayed()) {
                 issuedElement.click();
             } else {
                 WebElement draftClick = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(
-                        "#main-container > div.pt-6-new > div > div.main-container > div > div.d-flex.flex-row.justify-content-between > div.d-flex.flex-row > p.mb-0.cursor-pointer.ml-1.h6.font-regular.width-tab.h6.text-primary.box-shadow1.bg-white")));
+                        "body > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(6) > div:nth-child(1) > div:nth-child(14) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > p:nth-child(2)")));
                 draftClick.click();
             }
 
