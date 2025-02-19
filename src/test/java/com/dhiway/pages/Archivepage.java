@@ -26,7 +26,7 @@ WebElement ArchiveRegistrybtn;
 @FindBy(xpath = "//input[@id='space-name-input-id']")
 WebElement Spacenametextbox;
 public void searchBox(){
-    Searchbox.sendKeys("Testspacename3");
+    Searchbox.sendKeys("Test space");
     Searchbox.click();
 }
 public void ArchiveRegistry() throws InterruptedException{

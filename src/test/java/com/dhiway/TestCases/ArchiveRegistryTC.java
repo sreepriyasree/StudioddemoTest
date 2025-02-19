@@ -59,6 +59,14 @@ Thread.sleep(20000);
         Screenshot.saveScreenshot(((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE),
                 "Screenshots/" + testcasename + " " + datetimetoday + "/Dashboard.jpg");
 
+                WebElement Filterby = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".css-8mmkcg")));
+                Filterby.click();
+                WebElement Activetab = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"react-select-2-option-1\"]")));
+                Activetab.click();
+                Thread.sleep(2000);  
+
+                
+
         if (createspace != null) {
             Archivepage AR = new Archivepage(driver);
             AR.searchBox();

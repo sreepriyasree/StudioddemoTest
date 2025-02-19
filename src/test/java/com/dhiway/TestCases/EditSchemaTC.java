@@ -41,6 +41,8 @@ public class EditSchemaTC extends BaseClass {
             loginPage.enterUsername(email);
         }
 
+
+        
         // Screenshot after login
         String datetimetoday = new SimpleDateFormat("ddMMyyyy_HHmmss").format(new Date());
         Screenshot.saveScreenshot(((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE),
