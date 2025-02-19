@@ -21,7 +21,6 @@ import com.dhiway.Utilities.DateTimeUtil;
 import com.dhiway.Utilities.ExcelUtils;
 import com.dhiway.Utilities.ReadConfig;
 import com.dhiway.Utilities.Screenshot;
-import com.dhiway.pages.EditRegistrypage;
 import com.dhiway.pages.LoginPage;
 import com.dhiway.pages.RecordsPage;
 
