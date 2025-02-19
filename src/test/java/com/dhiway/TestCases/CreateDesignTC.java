@@ -11,7 +11,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.AssertJUnit;
 import org.testng.annotations.Test;
-
 import com.dhiway.Utilities.ExcelUtils;
 import com.dhiway.Utilities.ReadConfig;
 import com.dhiway.Utilities.Screenshot;
@@ -56,9 +55,11 @@ public class CreateDesignTC extends BaseClass {
         WebElement Designerbtn = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#designer-id > span")));
         Designerbtn.click();
         Thread.sleep(5000);
+        String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+        String schematitle = "Test Schema Creation" ;
 
         WebElement Searchfield = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='user-name-modal']")));
-        Searchfield.sendKeys("Test Schema Creation 20");
+        Searchfield.sendKeys(schematitle);
         Thread.sleep(6000);
 
         WebElement Selectschema = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#root > div > div:nth-child(2) > div > div > div:nth-child(3) > div:nth-child(2)")));
@@ -75,13 +76,14 @@ public class CreateDesignTC extends BaseClass {
 
         WebElement Addfieldbtn = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#add-button")));
         Addfieldbtn.click();
-        Thread.sleep(2000);
+        Thread.sleep(4000);
 
         // **Handling Dropdown for Variable Selection**
-        WebElement variables = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(".dropdown-variables-items.position-relative")));
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", variables);
-        Thread.sleep(2000);
-        variables.click();
+        WebElement variables = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".dropdown-variables-items.position-relative")));
+((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", variables);
+Thread.sleep(4000);
+variables.click();
+
         Thread.sleep(2000);
 
         WebElement Namefield = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("li[class='dropdown-variables-items position-relative'] li:nth-child(1)")));
@@ -92,9 +94,9 @@ public class CreateDesignTC extends BaseClass {
         Thread.sleep(2000);
 
         // **Handling Background Selection**
-        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector(".dropdown-variables-items")));
+        //wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector(".dropdown-variables-items")));
 
-        WebElement Backgndbtn = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#dropdown-variables > li:nth-child(5)")));
+        WebElement Backgndbtn = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("ul[id='dropdown-variables'] li:nth-child(5)")));
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", Backgndbtn);
         Thread.sleep(500);
         ((JavascriptExecutor) driver).executeScript("arguments[0].click();", Backgndbtn);
@@ -116,7 +118,7 @@ public class CreateDesignTC extends BaseClass {
 
         // **Selecting Default Background**
         Thread.sleep(3000);
-        WebElement defbckgnd = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("img[src='https://markstudio-test.s3.ap-south-1.amazonaws.com/apidata/background/o30edce57-614c-4ad6-9de3-210e19eccdfe_03fcc4ff-7442-4985-b8ff-e6fb723b3e2d.webp']")));
+        WebElement defbckgnd = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("img[src='https://markstudio-test.s3.ap-south-1.amazonaws.com/apidata/image/oc31123b8-49b2-4a04-bcd8-a825044fd885_c3dd6bfa-d2fc-4d80-94c2-e81514b4cfaf..png']")));
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", defbckgnd);
         Thread.sleep(500);
         ((JavascriptExecutor) driver).executeScript("arguments[0].click();", defbckgnd);
@@ -130,7 +132,7 @@ public class CreateDesignTC extends BaseClass {
         Exitdesignerbtn.click();
         Thread.sleep(6000);
 
-        String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+       // String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
         WebElement Savenametext = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("input[placeholder='Name this design']")));
         Savenametext.sendKeys("Testdesignname_" + timestamp);
         Thread.sleep(6000);

@@ -64,6 +64,13 @@ Thread.sleep(20000);
         Screenshot.saveScreenshot(((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE),
                 "Screenshots/" + testcasename + " " + datetimetoday + "/Dashboard.jpg");
 
+                WebElement Filterby = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".css-8mmkcg")));
+                Filterby.click();
+                WebElement Activetab = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"react-select-2-option-1\"]")));
+                Activetab.click();
+                Thread.sleep(2000);
+
+
                 WebElement Searchregistry = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("#searchSpace-id")));
                 Searchregistry.sendKeys("Test Space ");
         ExcelUtils Testcases = new ExcelUtils("Testcases");
@@ -81,16 +88,10 @@ Thread.sleep(20000);
             Thread.sleep(5000);
             
             // Find the element for Addrecord and check if it's not null
-            WebElement Addrecord = driver.findElement(By.id("single-record-id")); 
-            if (Addrecord != null) {
-                Addrecord.click();
-            } else {
-                System.out.println("Addrecord button element is not found!");
-            }
+            WebElement Singlerecord = driver.findElement(By.cssSelector("#single-record-id")); 
+           Singlerecord.click();
 
-            // Taking a screenshot after clicking Add Record
-            Screenshot.saveScreenshot(((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE),
-                "Screenshots/" + testcasename + " " + datetimetoday + "/AfterAddRecord.jpg");
+           
 
             // Fill out the form if data exists
             if (firstRowData.containsKey("Name")) {
@@ -98,11 +99,11 @@ Thread.sleep(20000);
                 WebElement selectName = driver.findElement(By.xpath("//input[@id='Name']"));
                 selectName.sendKeys(Name);
             }
-            Thread.sleep(2000);
+            Thread.sleep(5000);
             
             if (firstRowData.containsKey("Email")) {
                 String Email = firstRowData.get("Email");
-                WebElement selectEmail = driver.findElement(By.xpath("//input[@id='Email ID']"));
+                WebElement selectEmail = driver.findElement(By.xpath("//input[@id='Email']"));
                 selectEmail.sendKeys(Email);
             }
             Thread.sleep(2000);

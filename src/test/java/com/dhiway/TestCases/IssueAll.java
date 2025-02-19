@@ -70,9 +70,10 @@ Thread.sleep(20000);
         if (createspace != null) {
             // Selecting the space
             if (firstRowData.containsKey("spacename")) {
-                String Spacename = firstRowData.get("spacename");
-                WebElement selectspace = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//h6[text()='" + Spacename + "']")));
-                selectspace.click();
+                WebElement Searchspace= wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("#searchSpace-id")));
+                Searchspace.sendKeys("Test Space Creation");
+                WebElement Selectspace= wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div:nth-child(1) div:nth-child(2) div:nth-child(1) div:nth-child(1) div:nth-child(2) div:nth-child(1) div:nth-child(1) div:nth-child(1) div:nth-child(1) div:nth-child(2) h6:nth-child(1)")));
+                Selectspace.click();
             }
             Thread.sleep(10000);
 
