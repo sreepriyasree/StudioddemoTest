@@ -15,8 +15,9 @@
               <class name="com.dhiway.TestCases.Bulkupload"/>
               <class name="com.dhiway.TestCases.Issuerecord"/>
               <class name="com.dhiway.TestCases.BULKEdit"/>
+                 <class name="com.dhiway.TestCases.IssueAll"/>
               <class name="com.dhiway.TestCases.RevokeTC"/>
-              <class name="com.dhiway.TestCases.IssueAll"/>
+          
               <class name="com.dhiway.TestCases.ReshareRecord"/>
               <class name="com.dhiway.TestCases.SummaryDownload"/>
                <class name="com.dhiway.TestCases.Activitylog"/>
