@@ -86,7 +86,7 @@ Thread.sleep(20000);
     
                   //WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
                   WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.id("template-search-in32")));
-                  element.sendKeys("sept17-2-sree-afternoon");
+                  element.sendKeys("Test design");
                  // element.submit();
                 //  searchbox.sendKeys("sept17-2-sree-afternoon");
                   
