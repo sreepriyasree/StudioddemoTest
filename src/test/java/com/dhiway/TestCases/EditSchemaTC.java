@@ -42,7 +42,7 @@ public class EditSchemaTC extends BaseClass {
         }
 
 
-        
+
         // Screenshot after login
         String datetimetoday = new SimpleDateFormat("ddMMyyyy_HHmmss").format(new Date());
         Screenshot.saveScreenshot(((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE),
@@ -83,16 +83,18 @@ Thread.sleep(20000);
         WebElement searchTab = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='user-name-modal']")));
         searchTab.sendKeys("Test ");
         
-        
+        Thread.sleep(2000);
         WebElement schemaSelected = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(
             "#root > div > div:nth-child(2) > div > div > div:nth-child(3) > div:nth-child(2) > div:nth-child(1) > section > p:nth-child(2)")));
         schemaSelected.click();
 
+        Thread.sleep(2000);
         // Edit schema
         WebElement editBtn = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(
             "#space-editor-container > div > div.positon-edit-schema-designer.w-100 > div > div:nth-child(2) > button")));
         editBtn.click();
 
+        Thread.sleep(2000);
         WebElement schemaNameTab = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='title-schema']")));
         schemaNameTab.sendKeys("Schemaedited");
 

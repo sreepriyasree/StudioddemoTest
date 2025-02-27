@@ -82,7 +82,7 @@ Thread.sleep(20000);
             Dropdownelement.click();  // Click the dropdown to expand it
 
             // Find and click the "Issue all credentials" option
-            WebElement issueAllOption = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#issueallcred")));
+            WebElement issueAllOption = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//li[@id='issueallcred']")));
             issueAllOption.click();
             
             Thread.sleep(2000);

@@ -73,6 +73,7 @@ Thread.sleep(20000);
 
                 WebElement Searchregistry = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("#searchSpace-id")));
                 Searchregistry.sendKeys("Test Space ");
+                Thread.sleep(6000);
         ExcelUtils Testcases = new ExcelUtils("Testcases");
         if (createspace != null) {
 

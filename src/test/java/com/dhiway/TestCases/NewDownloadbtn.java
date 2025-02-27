@@ -80,17 +80,17 @@ public class NewDownloadbtn extends BaseClass {
             WebElement issuedTab = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("p.cursor-pointer:nth-child(1)")));
             issuedTab.click();
 
-            WebElement actions = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(".mb-4 > th:nth-child(1) > label:nth-child(2)")));
+            WebElement actions = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("label[for='styled-checkbox-all']")));//label[for='styled-checkbox-all']
             actions.click();
-
+Thread.sleep(2000);
             // Click the download button and select PDF with background
-            WebElement newDownloadBtn = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(".tn-sm")));
+            WebElement newDownloadBtn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[text()='Download']")));
             newDownloadBtn.click();
 
-            WebElement pdfWithBackground = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("ul.d-flex:nth-child(11) > li:nth-child(1) > img:nth-child(1)")));
+            WebElement pdfWithBackground = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("img[alt='PDF with Bg']"))); //img[alt='PDF with Bg']
             pdfWithBackground.click();
 
-            WebElement finalDownloadBtn = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(".btn-dwnld")));
+            WebElement finalDownloadBtn = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(".btn-dwnld")));//button[class='btn-dwnld letter-space-min opacity-handle font-regular btn btn-secondary']
             finalDownloadBtn.click();
             Thread.sleep(10000);
 
