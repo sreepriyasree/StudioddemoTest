@@ -71,7 +71,7 @@ public class CreateSchemaTC extends BaseClass {
                 Testcases.writeDataToSheet("Testcases", "LoginTC", data);
                 AssertJUnit.assertTrue(false);
             }
-
+            Thread.sleep(2000);
             // Navigate to Designer and search for schema
             WebElement designerBtn = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("#designer-id > span")));
             designerBtn.click();
@@ -118,8 +118,7 @@ public class CreateSchemaTC extends BaseClass {
             WebElement Addfieldbtn = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[text()='ADD A FIELD']")));
             Addfieldbtn.click();
 
-            //WebElement Requiredcheckbox = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='required_checkbox0']")));
-           // Requiredcheckbox.click();
+           
 
             WebElement Fieldnamebox = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@placeholder='Field Name']")));
             Fieldnamebox.sendKeys("name test");
