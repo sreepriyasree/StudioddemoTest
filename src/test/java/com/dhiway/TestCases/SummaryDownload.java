@@ -68,6 +68,8 @@ Thread.sleep(20000);
             // Selecting the space
             if (firstRowData.containsKey("spacename")) {
                 String Spacename = firstRowData.get("spacename");
+                WebElement searchregistry= wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='searchSpace-id']")));
+                searchregistry.sendKeys("Newreg");
                 WebElement selectspace = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//h6[text()='" + Spacename + "']")));
                 selectspace.click();
             }

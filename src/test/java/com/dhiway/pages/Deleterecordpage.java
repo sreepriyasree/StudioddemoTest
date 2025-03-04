@@ -2,6 +2,7 @@ package com.dhiway.pages;
 
 import java.time.Duration;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -20,9 +21,13 @@ public class Deleterecordpage {
         PageFactory.initElements(driver, this);  // Initialize page elements
     }
 
-    @FindBy(xpath = "//span[text()= 'Delete']")
-    WebElement Deletebtn;
+    //@FindBy(xpath = "//span[text()= 'Delete']")
+   // WebElement Deletebtn;
     public void Deletebtnclick() {
-        wait.until(ExpectedConditions.elementToBeClickable(Deletebtn)).click();
+       WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+WebElement deleteButton = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("button[class='btn-sm btn btn-danger h6 font-regular text-white mb-0 ml-2 p-2 mb-0 btn btn-primary'] span[class='align-bottom']")));
+deleteButton.click();
+
+      
     }
 }

@@ -71,6 +71,8 @@ public class NewDownloadbtn extends BaseClass {
             // Select space if specified in test data
             if (firstRowData.containsKey("spacename")) {
                 String spaceName = firstRowData.get("spacename");
+                WebElement searchregistry= wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='searchSpace-id']")));
+                searchregistry.sendKeys("Newreg");
                 WebElement selectSpace = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//h6[text()='" + spaceName + "']")));
                 selectSpace.click();
                 Thread.sleep(2000);

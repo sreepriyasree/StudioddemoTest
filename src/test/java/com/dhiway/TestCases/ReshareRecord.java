@@ -62,6 +62,8 @@ Loginbtn.click();
         if (createspace != null) {
             if (firstRowData.containsKey("spacename")) {
                 String Spacename = firstRowData.get("spacename");
+                WebElement searchregistry= wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='searchSpace-id']")));
+                searchregistry.sendKeys("Newreg");
                 WebElement selectspace = driver.findElement(By.xpath("//h6[text()='" + Spacename + "']"));
                 selectspace.click();
             }
