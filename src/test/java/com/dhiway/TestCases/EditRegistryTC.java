@@ -67,6 +67,7 @@ Loginbtn.click();
             Screenshot.saveScreenshot(((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE),
                     "Screenshots/" + testcasename + " " + datetimetoday + "/Editregistry.jpg");
             Thread.sleep(5000);
+            
           
 
 WebElement cs = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("create-space")));

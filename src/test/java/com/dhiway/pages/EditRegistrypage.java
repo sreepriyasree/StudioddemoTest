@@ -42,5 +42,6 @@ public void EditRegistry() throws InterruptedException{
     Thread.sleep(10000);
     WebElement UpdateRegistrybtn = driver.findElement(By.xpath("//button[text()='Update Registry']"));
     UpdateRegistrybtn.click();
+    
 }
 }
