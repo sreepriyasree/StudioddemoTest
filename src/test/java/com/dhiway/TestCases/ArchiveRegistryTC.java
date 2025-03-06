@@ -7,13 +7,7 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.Map;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.ElementClickInterceptedException;
-import org.openqa.selenium.ElementNotInteractableException;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.AssertJUnit;
@@ -27,6 +21,7 @@ import com.dhiway.pages.Archivepage;
 import com.dhiway.pages.LoginPage;
 
 public class ArchiveRegistryTC extends BaseClass {
+
     @Test
     public void ArchiveRegistry() throws InterruptedException, IOException {
         String testcasename = "Archiveregistry";
@@ -74,24 +69,38 @@ public class ArchiveRegistryTC extends BaseClass {
             AR.searchBox();
             Thread.sleep(20000);
 
-            // ✅ Updated Archive Button Click with Fix
-            WebElement archiveButton = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("archive-space-action-id")));
-            ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", archiveButton);
-            Thread.sleep(1000);
-            wait.until(ExpectedConditions.elementToBeClickable(archiveButton));
+            // ✅ Fix: Locate FirstSpace dynamically
+          
+                WebElement FirstSpace = wait.until(ExpectedConditions.presenceOfElementLocated(
+                        By.cssSelector("#scrollableDiv > div.main-container.fade-ui.mt-2 > div > div.infinite-scroll-component__outerdiv > div > div > div:nth-child(2)")));
 
-            try {
+FirstSpace.isEnabled();
+                // Scroll into view
+                //((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", FirstSpace);
+                Thread.sleep(1000);
+
+            
+
+           
+                WebElement threedot = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(
+                        "body > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(6) > div:nth-child(1) > div:nth-child(6) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > button:nth-child(1) > div:nth-child(1)")));
+               
+                Thread.sleep(1000);
+                threedot.click();
+           
+
+            
+                WebElement archiveButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(
+                        "//div[1]//div[2]//div[1]//div[1]//div[2]//div[1]//div[1]//div[1]//div[1]//div[3]//button[1]//ul[1]//li[3]")));
+
+                //((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", archiveButton);
+                Thread.sleep(1000);
                 archiveButton.click();
-            } catch (ElementClickInterceptedException e) {
-                System.out.println("Element is intercepted, using JavaScript click.");
-                ((JavascriptExecutor) driver).executeScript("arguments[0].click();", archiveButton);
-            } catch (ElementNotInteractableException e) {
-                System.out.println("Element is not interactable, trying alternative methods...");
-                ((JavascriptExecutor) driver).executeScript("arguments[0].click();", archiveButton);
-            }
+           
 
             Screenshot.saveScreenshot(((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE),
                     "Screenshots/" + testcasename + " " + datetimetoday + "/ArchiveRegistry.jpg");
+
             Thread.sleep(5000);
 
             WebElement cs = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("create-space")));

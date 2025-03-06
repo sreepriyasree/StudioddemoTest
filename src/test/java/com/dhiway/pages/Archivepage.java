@@ -19,6 +19,8 @@ public Archivepage(WebDriver driver){
 }
 @FindBy(xpath ="//input[@id='searchSpace-id']")
 WebElement Searchbox;
+@FindBy (css = "#scrollableDiv > div.main-container.fade-ui.mt-2 > div > div.infinite-scroll-component__outerdiv > div > div > div:nth-child(2)")
+WebElement FirstSpace;
 @FindBy(css="body > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(6) > div:nth-child(1) > div:nth-child(6) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > button:nth-child(1) > div:nth-child(1)")
 WebElement threedot;
 @FindBy(css = "body > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(6) > div:nth-child(1) > div:nth-child(6) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > button:nth-child(1) > ul:nth-child(2) > li:nth-child(3)")
@@ -30,7 +32,10 @@ public void searchBox(){
     Searchbox.click();
 }
 public void ArchiveRegistry() throws InterruptedException{
+    FirstSpace.isEnabled();
     threedot.click();
+    
+    
     Thread.sleep(10000);
     ArchiveRegistrybtn.click();
     Thread.sleep(20000);
