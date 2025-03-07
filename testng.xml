@@ -27,6 +27,7 @@
                 <class name="com.dhiway.TestCases.BulkDownload"/>
                  <class name="com.dhiway.TestCases.BulkhashMARKpngTC"/>
                  <class name="com.dhiway.TestCases.NewDownloadbtn"/>
+                  <class name="com.dhiway.TestCases.Zipfilenewdownloadui"/>
                   <class name="com.dhiway.TestCases.CreateSpacewithCertificateSelection"/>
                     <class name="com.dhiway.TestCases.ArchiveRegistryTC"/>
 
