@@ -76,13 +76,15 @@ public class CreateDesignTC extends BaseClass {
 
         WebElement Addfieldbtn = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#add-button")));
         Addfieldbtn.click();
-        Thread.sleep(4000);
+        Thread.sleep(2000);
 
         // **Handling Dropdown for Variable Selection**
         WebElement variables = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".dropdown-variables-items.position-relative")));
 ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", variables);
-Thread.sleep(4000);
+
 variables.click();
+
+
 
         Thread.sleep(2000);
 
@@ -92,7 +94,6 @@ variables.click();
 
         Addfieldbtn.click();
         Thread.sleep(2000);
-
         // **Handling Background Selection**
         //wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector(".dropdown-variables-items")));
 
