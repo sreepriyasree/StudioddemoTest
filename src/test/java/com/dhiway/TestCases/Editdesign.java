@@ -65,7 +65,7 @@ public class Editdesign extends BaseClass {
         Thread.sleep(10000);
         WebElement Designerbtn = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("#designer-id > span")));
         Designerbtn.click();
-        Thread.sleep(5000);
+        Thread.sleep(10000);
         WebElement Searchfield = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='user-name-modal']")));
         Searchfield.sendKeys("Test Schema Creation");
         Thread.sleep(6000);

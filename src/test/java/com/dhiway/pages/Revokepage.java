@@ -29,7 +29,8 @@ public class Revokepage {
    public void Revokebtnclick(){
      wait.until(ExpectedConditions.elementToBeClickable(Revokebtn)).click();
     }
-    public void Revokebtnimageclick(){
+    public void Revokebtnimageclick()
+    {
         wait.until(ExpectedConditions.elementToBeClickable(Revokebtnimage)).click();
     }
         public void revokeaction() throws InterruptedException{

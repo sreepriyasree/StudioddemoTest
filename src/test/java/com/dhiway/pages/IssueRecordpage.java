@@ -51,6 +51,7 @@ public class IssueRecordpage {
     @FindBy(xpath = "//span[text()='Issue']")
     WebElement TopIssuebtn;
 
+    
     public void Issuebtnclick() {
         wait.until(ExpectedConditions.elementToBeClickable(Issuebtn)).click();
     }

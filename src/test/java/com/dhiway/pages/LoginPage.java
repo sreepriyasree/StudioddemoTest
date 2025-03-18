@@ -28,6 +28,7 @@ public class LoginPage {
         usernameBox.sendKeys(uname);
       
     }
+    
 public void enterotp(){
     Otp.sendKeys("913345");
 }

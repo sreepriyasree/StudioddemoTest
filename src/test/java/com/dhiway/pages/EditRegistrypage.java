@@ -35,6 +35,7 @@ public void searchBox(){
 public void EditRegistry() throws InterruptedException{
     FirstSpace.isEnabled();
     threedot.click();
+    
     Thread.sleep(20000);
     EditRegistrybtn.click();
     Thread.sleep(10000);

@@ -28,6 +28,6 @@ public class Deleterecordpage {
 WebElement deleteButton = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("button[class='btn-sm btn btn-danger h6 font-regular text-white mb-0 ml-2 p-2 mb-0 btn btn-primary'] span[class='align-bottom']")));
 deleteButton.click();
 
-      
+    
     }
 }

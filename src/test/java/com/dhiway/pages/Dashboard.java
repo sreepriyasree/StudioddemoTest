@@ -12,6 +12,7 @@ public class Dashboard {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
+    
 
     @FindBy(id = "add-record")
     WebElement addRecord;
