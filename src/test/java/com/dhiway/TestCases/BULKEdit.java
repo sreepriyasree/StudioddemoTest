@@ -91,6 +91,7 @@ Thread.sleep(20000);
         Thread.sleep(10000);
         WebElement Uploadbtn= wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[text()='UPLOAD']")));
 Uploadbtn.click();
+
 Thread.sleep(2000);
 WebElement Previewrecordbtn = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("button[class='float-right medium-button mr-1 cursor-pointer font-medium btn btn-primary']")));
 Previewrecordbtn.click();

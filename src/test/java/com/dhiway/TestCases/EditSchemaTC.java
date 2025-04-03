@@ -76,10 +76,12 @@ Thread.sleep(6000);
                     Testcases.writeDataToSheet("Testcases", "LoginTC", data);
                     AssertJUnit.assertTrue(false);
                 }
+               
+                Thread.sleep(2000);
         // Navigate to Designer and search for schema
         WebElement designerBtn = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("#designer-id > span")));
         designerBtn.click();
-
+        Thread.sleep(3000);
         WebElement searchTab = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='user-name-modal']")));
         searchTab.sendKeys("Test ");
         
