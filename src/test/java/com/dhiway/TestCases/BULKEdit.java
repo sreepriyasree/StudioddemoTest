@@ -89,7 +89,7 @@ Thread.sleep(20000);
         WebElement Downloadbtn = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[text()='Download']")));
         Downloadbtn.click();
         Thread.sleep(10000);
-        WebElement Uploadbtn= wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[text()='UPLOAD']")));
+        WebElement Uploadbtn= wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[text()='UPLOAD']")));
 Uploadbtn.click();
 
 Thread.sleep(2000);
