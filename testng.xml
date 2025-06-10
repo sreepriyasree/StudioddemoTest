@@ -8,7 +8,10 @@
               <class name="com.dhiway.TestCases.CreateSchemaTC"/>
                <class name="com.dhiway.TestCases.EditSchemaTC"/>
                 <class name="com.dhiway.TestCases.CreateDesignTC"/>
-                 <class name="com.dhiway.TestCases.Editdesign"/>
+                 
+                  <class name="com.dhiway.TestCases.CreateDesignTC"/>
+                  <class name="com.dhiway.TestCases.Editdesign"/>
+                  <class name="com.dhiway.TestCases.CreateDraftDesignTC"/>
              <class name="com.dhiway.TestCases.CreateSpace"/>
               <class name="com.dhiway.TestCases.EditRegistryTC"/>
               <class name="com.dhiway.TestCases.CreateRecord"/>
@@ -16,8 +19,10 @@
               <class name="com.dhiway.TestCases.Deleterecord"/>
               <class name="com.dhiway.TestCases.Issuerecord"/>
               <class name="com.dhiway.TestCases.BULKEdit"/>
+             
                  <class name="com.dhiway.TestCases.IssueAll"/>
               <class name="com.dhiway.TestCases.RevokeTC"/>
+               <class name="com.dhiway.TestCases.Activitiestab"/>
           
               <class name="com.dhiway.TestCases.ReshareRecord"/>
               <class name="com.dhiway.TestCases.SummaryDownload"/>

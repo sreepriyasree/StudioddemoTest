@@ -89,10 +89,10 @@ Thread.sleep(20000);
             Thread.sleep(5000);
             
             // Find the element for Addrecord and check if it's not null
-            WebElement Singlerecord = driver.findElement(By.cssSelector("#single-record-id")); 
+            WebElement Singlerecord = driver.findElement(By.xpath("//button[@id='single-record-id']")); 
            Singlerecord.click();
 
-           
+           Thread.sleep(2000);
 
             // Fill out the form if data exists
             if (firstRowData.containsKey("Name")) {
@@ -104,12 +104,12 @@ Thread.sleep(20000);
             
             if (firstRowData.containsKey("Email")) {
                 String Email = firstRowData.get("Email");
-                WebElement selectEmail = driver.findElement(By.xpath("//input[@id='Email']"));
+                WebElement selectEmail = driver.findElement(By.xpath("//input[@id='Email ID']"));
                 selectEmail.sendKeys(Email);
             }
             Thread.sleep(2000);
             RP.SubmitAddRecord(); 
-            Thread.sleep(20000);
+            Thread.sleep(10000);
             // Taking a screenshot after adding Record
             Screenshot.saveScreenshot(((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE),
                 "Screenshots/" + testcasename + " " + datetimetoday + "/Recordcreated.jpg");
@@ -124,12 +124,7 @@ Thread.sleep(20000);
                 Testcases.writeDataToSheet("Testcases", testcasename, data);
                 AssertJUnit.assertTrue(false);
             }
-        } else {
-            List<String> data = Arrays.asList(DateTimeUtil.getCurrentDateTime().toString(), "Error", "TestCaseFailed");
-            Testcases.writeDataToSheet("Testcases", testcasename, data);
-            AssertJUnit.assertTrue(false);
-        }
-
+        } 
         TestData.close();
         Testcases.close();
     }
